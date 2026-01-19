@@ -17,10 +17,13 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Build mod
-        run: msbuild FrozenFrontiers.csproj /p:Configuration=Release
+        run: |
+          msbuild FrozenFrontiers.csproj ^
+            /p:Configuration=Release ^
+            /p:RestorePackages=false
 
       - name: Upload DLL
         uses: actions/upload-artifact@v4
         with:
           name: FrozenFrontiers-DLL
-          path: bin/Release/FrozenFrontiers.dll
+          path: bin/Release/net472/FrozenFrontiers.dll
