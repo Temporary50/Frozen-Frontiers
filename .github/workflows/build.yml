@@ -17,14 +17,13 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
-      - name: Build mod (cmd)
+      - name: Build mod
         shell: cmd
         run: |
-          msbuild FrozenFrontiers.csproj /t:Build /p:Configuration=Release
+          msbuild FrozenFrontiers.csproj /p:Configuration=Release
 
       - name: Upload DLL
         uses: actions/upload-artifact@v4
         with:
           name: FrozenFrontiers-DLL
-          path: |
-            bin\Release\*.dll
+          path: bin/Release/**/*.dll
