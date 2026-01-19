@@ -1,48 +1,34 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-
-    <ProjectGuid>{B3D5F5F3-ABCD-4C12-9F5A-FF1122334455}</ProjectGuid>
+    <TargetFramework>net472</TargetFramework>
     <OutputType>Library</OutputType>
-    <RootNamespace>FrozenFrontiers</RootNamespace>
     <AssemblyName>FrozenFrontiers</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>FrozenFrontiers</RootNamespace>
     <LangVersion>latest</LangVersion>
-    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
 
-  <!-- Release -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-  </PropertyGroup>
-
-  <!-- Debug -->
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <OutputPath>bin\Release\net472\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>Requirements\Assembly-CSharp.dll</HintPath>
-      <Private>false</Private>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
 
     <Reference Include="UnityEngine">
-      <HintPath>Requirements\UnityEngine.dll</HintPath>
-      <Private>false</Private>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
 
     <Reference Include="SRML">
-      <HintPath>Requirements\SRML.dll</HintPath>
-      <Private>false</Private>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Slime Rancher\Mods\SRML\SRML.dll</HintPath>
     </Reference>
   </ItemGroup>
-
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 
 </Project>
