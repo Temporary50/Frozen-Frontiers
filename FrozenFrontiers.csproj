@@ -1,15 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+
     <OutputType>Library</OutputType>
     <AssemblyName>FrozenFrontiers</AssemblyName>
-    <RootNamespace>FrozenFrontiers</RootNamespace>
-
-    <!-- Critical: prevents NuGet asset restore errors -->
-    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
-    <RestoreProjectStyle>None</RestoreProjectStyle>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -19,20 +17,24 @@
 
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>$(SlimeRancherPath)\SlimeRancher_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
 
     <Reference Include="UnityEngine">
-      <HintPath>$(SlimeRancherPath)\SlimeRancher_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
 
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(SlimeRancherPath)\SlimeRancher_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
 
     <Reference Include="SRML">
-      <HintPath>$(SlimeRancherPath)\Mods\SRML\SRML.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\Slime Rancher\SRML\SRML.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="FrozenFrontiers.cs" />
   </ItemGroup>
 
 </Project>
