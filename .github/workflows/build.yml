@@ -23,4 +23,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: FrozenFrontiers-DLL
-          path: bin/Release/net472/FrozenFrontiers.dll
+          path: bin/Release/FrozenFrontiers.dll
