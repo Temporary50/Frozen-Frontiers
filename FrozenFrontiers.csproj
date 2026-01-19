@@ -5,29 +5,33 @@
     <OutputType>Library</OutputType>
     <AssemblyName>FrozenFrontiers</AssemblyName>
     <RootNamespace>FrozenFrontiers</RootNamespace>
-    <LangVersion>latest</LangVersion>
+
+    <!-- Critical: prevents NuGet asset restore errors -->
+    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+    <RestoreProjectStyle>None</RestoreProjectStyle>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\net472\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>$(SlimeRancherPath)\SlimeRancher_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
 
     <Reference Include="UnityEngine">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>$(SlimeRancherPath)\SlimeRancher_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
 
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(SlimeRancherPath)\SlimeRancher_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
 
     <Reference Include="SRML">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Slime Rancher\Mods\SRML\SRML.dll</HintPath>
+      <HintPath>$(SlimeRancherPath)\Mods\SRML\SRML.dll</HintPath>
     </Reference>
   </ItemGroup>
 
