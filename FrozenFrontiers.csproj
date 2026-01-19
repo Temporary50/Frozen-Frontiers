@@ -1,23 +1,19 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <AssemblyName>FrozenFrontiers</AssemblyName>
+    <OutputType>Library</OutputType>
     <RootNamespace>FrozenFrontiers</RootNamespace>
+    <AssemblyName>FrozenFrontiers</AssemblyName>
     <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="FrozenFrontiers.cs" />
   </ItemGroup>
 
-  <!-- SRML / Unity References -->
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>Requirements\Assembly-CSharp.dll</HintPath>
@@ -31,6 +27,12 @@
 
     <Reference Include="UnityEngine">
       <HintPath>Requirements\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- REQUIRED FOR MonoBehaviour -->
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>Requirements\UnityEngine.CoreModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
 
