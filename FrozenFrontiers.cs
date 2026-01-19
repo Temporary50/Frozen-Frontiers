@@ -1,13 +1,7 @@
+using UnityEngine;
 using SRML;
 using SRML.SR;
-using UnityEngine;
-
-[assembly: ModInfo(
-    typeof(FrozenFrontiers),
-    "Frozen Frontiers",
-    "1.0.0",
-    "Advancius"
-)]
+using SRML.Utils;
 
 public class FrozenFrontiers : ModEntryPoint
 {
@@ -38,7 +32,7 @@ public static class Content
         CreateSlime();
     }
 
-    static void CreateFoods()
+    private static void CreateFoods()
     {
         var carrot = SRObjects.CreateFood(
             Identifiable.Id.CARROT,
@@ -63,7 +57,7 @@ public static class Content
             plantable.enabled = false;
     }
 
-    static void CreatePlort()
+    private static void CreatePlort()
     {
         var plort = SRObjects.CreatePlort(
             Identifiable.Id.PINK_PLORT,
@@ -75,7 +69,7 @@ public static class Content
         plort.GetComponent<Identifiable>().id = SNOWFLAKE_PLORT;
     }
 
-    static void CreateSlime()
+    private static void CreateSlime()
     {
         var slime = Slime.CreateSlime(
             Identifiable.Id.PINK_SLIME,
@@ -84,10 +78,11 @@ public static class Content
             Color.white,
             Color.cyan,
             Color.blue,
-            "A gentle, chilly slime that loves snow — and everything else."
+            "A gentle, chilly slime that loves snow ——— and everything else."
         );
 
         slime.GetComponent<Identifiable>().id = SNOWFLAKE_SLIME;
+
         var def = slime.GetComponent<SlimeDefinition>();
 
         def.CanFloat = true;
@@ -97,11 +92,13 @@ public static class Content
         def.Diet.Produces = new[] { SNOWFLAKE_PLORT };
 
         def.Diet.EatMap.Clear();
+
         def.Diet.EatMap.Add(SNOW_CARROT, new SlimeEat.EatMapEntry
         {
             producesId = SNOWFLAKE_PLORT,
             producesCount = 3
         });
+
         def.Diet.EatMap.Add(Identifiable.Id.PINK_PLORT, new SlimeEat.EatMapEntry
         {
             producesId = SNOWFLAKE_PLORT,
