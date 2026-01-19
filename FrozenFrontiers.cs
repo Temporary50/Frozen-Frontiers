@@ -86,7 +86,6 @@ namespace FrozenFrontiers
             slime.GetComponent<Identifiable>().id = SNOWFLAKE_SLIME;
 
             var def = slime.GetComponent<SlimeDefinition>();
-
             def.CanFloat = true;
 
             def.Diet.MajorFoodGroups = new[] { SlimeEat.FoodGroup.ALL };
@@ -94,7 +93,6 @@ namespace FrozenFrontiers
             def.Diet.Produces = new[] { SNOWFLAKE_PLORT };
 
             def.Diet.EatMap.Clear();
-
             def.Diet.EatMap.Add(SNOW_CARROT, new SlimeEat.EatMapEntry
             {
                 producesId = SNOWFLAKE_PLORT,
