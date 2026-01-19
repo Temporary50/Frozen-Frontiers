@@ -1,9 +1,16 @@
+<ItemGroup>
+  <Reference Include="Assembly-CSharp">
+    <HintPath>Libs\Assembly-CSharp.dll</HintPath>
+    <Private>false</Private>
+  </Reference>
 
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
-    <OutputType>Library</OutputType>
-    <AssemblyName>FrozenFrontiers</AssemblyName>
-    <RootNamespace>FrozenFrontiers</RootNamespace>
-  </PropertyGroup>
-</Project>
+  <Reference Include="UnityEngine">
+    <HintPath>Libs\UnityEngine.dll</HintPath>
+    <Private>false</Private>
+  </Reference>
+
+  <Reference Include="SRML">
+    <HintPath>Libs\SRML.dll</HintPath>
+    <Private>false</Private>
+  </Reference>
+</ItemGroup>
