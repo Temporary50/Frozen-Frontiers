@@ -24,7 +24,6 @@ public static class Content
         SNOW_CARROT = IdRegistry.CreateId("snow_carrot");
         SNOWFLAKE_FOOD = IdRegistry.CreateId("snowflake_food");
         SNOWFLAKE_PLORT = IdRegistry.CreateId("snowflake_plort");
-        SNOWFLAKE_SLIME = IdRegistry.CreateId("snowflake_slime");
 
         CreateFoods();
         CreatePlort();
@@ -52,7 +51,8 @@ public static class Content
         flake.GetComponent<Identifiable>().id = SNOWFLAKE_FOOD;
 
         var plantable = flake.GetComponent<GardenPlantable>();
-        if (plantable) plantable.enabled = false;
+        if (plantable != null)
+            plantable.enabled = false;
     }
 
     static void CreatePlort()
@@ -76,12 +76,13 @@ public static class Content
             Color.white,
             Color.cyan,
             Color.blue,
-            "A gentle, chilly slime that loves snow ——— and everything else."
+            "A gentle, chilly slime that loves snow — and everything else."
         );
 
-        slime.GetComponent<Identifiable>().id = SNOWFLAKE_SLIME;
-        var def = slime.GetComponent<SlimeDefinition>();
+        // IMPORTANT: capture the ID SRML assigns — do NOT overwrite it
+        SNOWFLAKE_SLIME = slime.GetComponent<Identifiable>().id;
 
+        var def = slime.GetComponent<SlimeDefinition>();
         def.CanFloat = true;
 
         def.Diet.MajorFoodGroups = new[] { SlimeEat.FoodGroup.ALL };
