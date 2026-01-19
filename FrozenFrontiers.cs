@@ -2,6 +2,13 @@ using SRML;
 using SRML.SR;
 using UnityEngine;
 
+[assembly: ModInfo(
+    typeof(FrozenFrontiers),
+    "Frozen Frontiers",
+    "1.0.0",
+    "Advancius"
+)]
+
 public class FrozenFrontiers : ModEntryPoint
 {
     public override void Load()
@@ -24,6 +31,7 @@ public static class Content
         SNOW_CARROT = IdRegistry.CreateId("snow_carrot");
         SNOWFLAKE_FOOD = IdRegistry.CreateId("snowflake_food");
         SNOWFLAKE_PLORT = IdRegistry.CreateId("snowflake_plort");
+        SNOWFLAKE_SLIME = IdRegistry.CreateId("snowflake_slime");
 
         CreateFoods();
         CreatePlort();
@@ -79,10 +87,9 @@ public static class Content
             "A gentle, chilly slime that loves snow — and everything else."
         );
 
-        // IMPORTANT: capture the ID SRML assigns — do NOT overwrite it
-        SNOWFLAKE_SLIME = slime.GetComponent<Identifiable>().id;
-
+        slime.GetComponent<Identifiable>().id = SNOWFLAKE_SLIME;
         var def = slime.GetComponent<SlimeDefinition>();
+
         def.CanFloat = true;
 
         def.Diet.MajorFoodGroups = new[] { SlimeEat.FoodGroup.ALL };
