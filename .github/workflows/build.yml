@@ -1,28 +1,26 @@
-name: Build FrozenFrontiers Mod
+name: Build Frozen Frontiers
 
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v2
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
 
-      - name: Build mod
-        shell: cmd
-        run: |
-          msbuild FrozenFrontiers.csproj /t:Build /p:Configuration=Release
+    - name: Restore .NET Framework reference assemblies
+      run: |
+        echo "Using preinstalled .NET Framework 4.7.2"
 
-      - name: Upload DLL
-        uses: actions/upload-artifact@v4
-        with:
-          name: FrozenFrontiers-DLL
-          path: bin/Release/FrozenFrontiers.dll
+    - name: Build mod
+      run: |
+        msbuild FrozenFrontiers.csproj /p:Configuration=Release /p:Platform=AnyCPU
