@@ -1,0 +1,9 @@
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AssemblyName>FrozenFrontiers</AssemblyName>
+    <RootNamespace>FrozenFrontiers</RootNamespace>
+  </PropertyGroup>
+</Project>
